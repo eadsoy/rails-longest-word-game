@@ -1,0 +1,13 @@
+<h1>Result</h1>
+<p><%= @word%></p>
+<p><%= @answer.html_safe%></p>
+<p><strong>Your score: </strong><%= @end_score%></p>
+
+<ul>
+  <% @end_num.each_with_index do |num, index| %>
+    <li>Play <%= index + 1 %>:  <%= num %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Play again', new_path %>
+
