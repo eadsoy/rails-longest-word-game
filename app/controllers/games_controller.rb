@@ -25,14 +25,14 @@ class GamesController < ApplicationController
     end
     @word.split('').each do |letter|
       if (@letters.include? letter) == false || (@letters.count(letter) < @word.chars.count(letter))
-        @answer = "Sorry but <strong>#{@word}</strong> can't be build out of #{@letters.split(' ').join(", ")}."
+        @answer = "Sorry but <strong>#{@word}</strong> can't be build out of #{@letters.split(' ').join(', ')}."
         @end_score = 0
       end
     end
     # ActionDispatch::Session::CookieStore
     # session['scores'] << end_score
     session['end_score'] << [@end_score]
-    @end_num = session['end_score'].flatten
+    @end_num = session['end_score'].last(5).flatten
     # session['scores'] += end_score
   end
 end

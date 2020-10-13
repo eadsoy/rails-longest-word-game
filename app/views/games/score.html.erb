@@ -5,9 +5,8 @@
 
 <ul>
   <% @end_num.each_with_index do |num, index| %>
-    <li>Play <%= index + 1 %>:  <%= num %></li>
+    <li><%= Time.new.strftime("Played on %m/%d/%Y at %I:%M %p")  %> <strong>----Play <%= index + 1 %> Score: <%= num %> </strong></li>
   <% end %>
 </ul>
 
 <%= link_to 'Play again', new_path %>
-
